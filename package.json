@@ -1,0 +1,30 @@
+{
+  "name": "adaptvision-module1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AdaptVision Module 1, 'Meet Matty': teaching shortcut learning (spurious correlations) to middle schoolers.",
+  "engines": { "node": ">=20.19" },
+  "scripts": {
+    "start": "npm run prep:images && vite build && node server/index.js --open",
+    "dev": "concurrently -n api,web -c blue,green \"node --watch server/index.js\" \"vite\"",
+    "prep": "node server/prep.js",
+    "prep:images": "node server/prep.js --images-only",
+    "prep:mock": "node server/prep.js --mock"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "dotenv": "^18.0.2",
+    "express": "^5.2.1",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@fontsource/atkinson-hyperlegible": "^5.3.0",
+    "@fontsource/kalam": "^5.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "vite": "^8.3.0"
+  }
+}
